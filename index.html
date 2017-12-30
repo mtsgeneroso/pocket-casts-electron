@@ -19,7 +19,7 @@
   </head>
   <body>
     <div class="indicator"></div>
-    <webview id="pocket" src="http://play.pocketcasts.com/web" disablewebsecurity></webview>
+    <webview id="pocket" src="https://playbeta.pocketcasts.com/web/" disablewebsecurity></webview>
     <script>
       const {ipcRenderer} = require('electron')
       ipcRenderer.on('play-pause', (event, arg) => {
