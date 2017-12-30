@@ -1,6 +1,5 @@
 const {app, BrowserWindow, globalShortcut} = require('electron')
 
-
 const path = require('path')
 
 const url = require('url')
@@ -13,6 +12,7 @@ let win
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({
+    icon: path.join(__dirname, '/icon.png'),  
     width: 1200,
     title: "Pocketcasts",
     height: 750,
@@ -31,9 +31,11 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }))
-
   const touchBar = require('./touchbar')(win)
   win.setTouchBar(touchBar)
+
+  const thumbar = require('./thumbar')(win)
+  win.setThumbarButtons(thumbar)
 
   globalShortcut.register('MediaPlayPause', () => {
     win.webContents.send('play-pause')
